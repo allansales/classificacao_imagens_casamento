@@ -4,7 +4,7 @@ O objetivo deste projeto é avaliar o desempenho de diferentes abordagens para c
 
 ## Abordagem Multilabel
 
-O notebook *classifica_casal_multilabel* faz o treinamento de ambos modelos usando abordagem multilabel do problema, onde minha presença e a presença de minha esposa são tomadas como labels diferentes que assumem valor 0 ou 1, de acordo com a ausência ou presença na foto (e.g., o rótulo [0, 1] indica minha ausência e presença da minha esposa na foto).
+O notebook *classifica_casal_multilabel* faz o treinamento de ambos modelos usando abordagem multilabel do problema, onde minha presença e a presença de minha esposa são tomadas como labels diferentes que assumem valor 0 ou 1, de acordo com a ausência ou presença na foto (e.g., o rótulo [0, 1] indica minha ausência e presença da minha esposa na foto). Ambas redes fazem uso de *data augmentation* com zoom, rotação e espelhamento das imagens e de *early stopping* e *performance scheduler* para evitar overfitting.
 
 O modelo usando Transfer Learning se mostra bem mais eficiente em fazer a classificação do o modelo treinado do zero, atigindo ~98% de precisão, ~99% de recall e 96% de acurácia. Já quanto ao tempo de treinamento, o modelo com Transfer Learning leva mais de 1h pra treinar, enquanto o outro modelo é treinado em minutos. Em geral é esperado que o Transfer Learning seja mais rápido que o treinamento total de uma rede, no entanto, isso não acontece no nosso contexto devido ao tamanho da rede pré-treinada ser muito maior que a rede que nós estamos contruindo do zero. Quanto à diferença nos seus desempenhos, a rede com Transfer Learning se beneficia das features já aprendidas no seu treino anterio no dataset do imagenet, o que facilita a aplicação no nosso cenário.
 
